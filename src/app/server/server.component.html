@@ -1,1 +1,14 @@
 <p>This is from the server component.</p>
+<button [disabled]="!allowNewServer"
+(click) = "onCreateServer()">Create Server</button>
+<p [innerText]="serverCreationStatus"></p>
+<label>Server Name:</label>
+<p>{{serverName}}</p>
+<p>Below is without two-way binding, use input function event listener instead</p>
+<input type="text"
+class="form-control"
+(input)="onUpdateServerName($event)">
+<p>Below is with two-way binding</p>
+<input type="text"
+class="form-control"
+[(ngModel)]="serverName">

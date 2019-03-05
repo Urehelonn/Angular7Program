@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessAlertComponent implements OnInit {
 
-  successInfo: string = 'Success!';
+  username: string ='';
 
   constructor() { }
 

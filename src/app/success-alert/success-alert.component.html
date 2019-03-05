@@ -1,3 +1,6 @@
 <div class="success">
-    {{ successInfo }}
+    <input [(ngModel)]="username">
+    <p>{{username}}</p>
+    <button [disabled]="username===''"
+    (click)="username=''">Empty Username</button>
 </div>
