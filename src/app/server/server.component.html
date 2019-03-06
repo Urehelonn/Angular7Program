@@ -1,21 +1,27 @@
-<p>This is from the server component.</p>
-<button [disabled]="!allowNewServer"
-(click) = "onCreateServer()">Create Server</button>
-<p [ngStyle]="{backgroundColor: getBGColour()}" [innerText]="serverCreationStatus"></p>
-
-<div *ngIf="serverCreated; else noServer" [ngClass]="{withName: !(serverName==='N/A')}">
+<br>
+<div *ngIf="allowNewServer; else noServer">
     <label>Server Name:</label>
     <p>{{serverName}}</p>
     
-    <p>Below is without two-way binding, use input function event listener instead</p>
-    <input type="text"
-    class="form-control"
-    (input)="onUpdateServerName($event)">
-    <p>Below is with two-way binding</p>
+    <!--<p>Below is without two-way binding, use input function event listener instead</p>-->
+    <!--<input type="text"-->
+    <!--class="form-control"-->
+    <!--(input)="onUpdateServerName($event)">-->
+    <!--<p>Below is with two-way binding</p>-->
+    
     <input type="text"
     class="form-control"
     [(ngModel)]="serverName">
 </div>
+<button [disabled]="!allowNewServer"
+(click) = "onCreateServer()">Add Server</button>
+<br>
+<br>
+
+<p [ngStyle]="{backgroundColor: getBGColour()}" [innerText]="serverCreationStatus"></p>
+
 <ng-template #noServer>
     No server yet.
 </ng-template>
+
+<p *ngFor="let server of servers" [ngClass]="{withName: !(server==='N/A')}">{{server}}</p>

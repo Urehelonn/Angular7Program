@@ -11,6 +11,7 @@ export class ServerComponent{
     serverCreationStatus = 'No server was created.';
     serverName = 'N/A';
     serverCreated = false;
+    servers=[];
     
     constructor(){
         setTimeout(()=>{
@@ -23,11 +24,14 @@ export class ServerComponent{
     onCreateServer(){
         this.serverCreationStatus = 'Server created with name: '+this.serverName;
         this.serverCreated=true;
+        this.servers.push(this.serverName);
+        console.log('server list inceased: '+this.servers);
     }
     
-    onUpdateServerName(event: any){
-        this.serverName = event.target.value;
-    }
+    //data-binding event
+    // onUpdateServerName(event: any){
+    //     this.serverName = event.target.value;
+    // }
     
     getBGColour(){
         if(this.serverCreated) return 'green';
