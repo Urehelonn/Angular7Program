@@ -6,35 +6,11 @@ import { Component } from '@angular/core';
     styleUrls: ['./server.component.css']
 })
 export class ServerComponent{
-
-    allowNewServer = false;
-    serverCreationStatus = 'No server was created.';
-    serverName = 'N/A';
-    serverCreated = false;
-    servers=[];
-    
-    constructor(){
-        setTimeout(()=>{
-            this.allowNewServer = true;
-        },2000);
-    }
+    newServerName = '';
+    newServerContent = '';
+  
+    constructor(){}
     
     ngOnInit(){}
     
-    onCreateServer(){
-        this.serverCreationStatus = 'Server created with name: '+this.serverName;
-        this.serverCreated=true;
-        this.servers.push(this.serverName);
-        console.log('server list inceased: '+this.servers);
-    }
-    
-    //data-binding event
-    // onUpdateServerName(event: any){
-    //     this.serverName = event.target.value;
-    // }
-    
-    getBGColour(){
-        if(this.serverCreated) return 'green';
-        return 'red';
-    }
 }

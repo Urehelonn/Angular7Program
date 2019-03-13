@@ -1,27 +1,9 @@
-<br>
-<div *ngIf="allowNewServer; else noServer">
-    <label>Server Name:</label>
-    <p>{{serverName}}</p>
-    
-    <!--<p>Below is without two-way binding, use input function event listener instead</p>-->
-    <!--<input type="text"-->
-    <!--class="form-control"-->
-    <!--(input)="onUpdateServerName($event)">-->
-    <!--<p>Below is with two-way binding</p>-->
-    
-    <input type="text"
-    class="form-control"
-    [(ngModel)]="serverName">
+<div class="panel panel-default">
+    <div class="panel-heading">{{ element.name }}</div>
+    <div class="panel-body">
+      <p>
+        <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+        <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+      </p>
+    </div>
 </div>
-<button [disabled]="!allowNewServer"
-(click) = "onCreateServer()">Add Server</button>
-<br>
-<br>
-
-<p [ngStyle]="{backgroundColor: getBGColour()}" [innerText]="serverCreationStatus"></p>
-
-<ng-template #noServer>
-    No server yet.
-</ng-template>
-
-<p *ngFor="let server of servers" [ngClass]="{withName: !(server==='N/A')}">{{server}}</p>

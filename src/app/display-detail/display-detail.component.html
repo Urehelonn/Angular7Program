@@ -1,9 +1,0 @@
-<button (click)=toggleDetail()>Display Detail</button>
-<p *ngIf="display">
-    {{codes}}
-</p>
-    
-<div *ngFor="let num of nums; let i = index" [ngClass]="{stylec: (i>4)}">
-    {{num}}
-</div>
-

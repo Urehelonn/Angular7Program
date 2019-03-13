@@ -8,13 +8,14 @@
   <br>
   <br>
   <img src= "//i.imgflip.com/115ze2.jpg">
-  
-</div>
-<div style="display: flex">
-    <app-success-alert>Loading...</app-success-alert>
-    <app-warning-alert>Loading...</app-warning-alert>
 </div>
 
-<app-server>Loading...</app-server>
-
-<app-display-detail>Loading...</app-display-detail>
+<div class="container">
+  <app-cockpit></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server *ngFor="let element of serverElements"></app-server>
+    </div>
+  </div>
+</div>
