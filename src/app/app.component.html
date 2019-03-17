@@ -15,7 +15,10 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server *ngFor="let element of serverElements"></app-server>
+      <app-server
+      *ngFor="let element of serverElements">
+        [element]="serverElements"
+      </app-server>
     </div>
   </div>
 </div>
