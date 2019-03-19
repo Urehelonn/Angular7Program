@@ -4,8 +4,6 @@
   <h1>
    This is {{ title }}!
   </h1>
-  <input type="text" [(ngModel)]="title"/>
-  <br>
   <br>
   <img src= "//i.imgflip.com/115ze2.jpg">
 </div>
@@ -13,12 +11,5 @@
 <div class="container">
   <app-cockpit></app-cockpit>
   <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-server
-      *ngFor="let element of serverElements">
-        [element]="serverElements"
-      </app-server>
-    </div>
-  </div>
+  <app-server-element></app-server-element>
 </div>

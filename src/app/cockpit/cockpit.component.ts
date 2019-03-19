@@ -7,17 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
 
+  newServerName = '';
+  newServerContent = '';
+  
   constructor() { }
 
   ngOnInit() {
   }
-  
+
   onAddServer() {
-    console.log("server added");
+    this.serverElements.push({
+      type: 'server',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
   }
 
   onAddBlueprint() {
-    console.log("blueprint added");
+    this.serverElements.push({
+      type: 'blueprint',
+      name: this.newServerName,
+      content: this.newServerContent
+    });
   }
-
 }
