@@ -1,15 +1,7 @@
-<app-nav>Loading...</app-nav>
-
-<div style="text-align:center">
-  <h1>
-   This is {{ title }}!
-  </h1>
-  <br>
-  <img src= "//i.imgflip.com/115ze2.jpg">
-</div>
-
-<div class="container">
-  <app-cockpit></app-cockpit>
-  <hr>
-  <app-server-element></app-server-element>
-</div>
+<app-header></app-header>
+<a routerLink="/login" routerLinkActive="active">Login</a>
+<br>
+<a routerLink="/signup" routerLinkActive="active">Register</a>
+<br>
+<a routerLink="/" routerLinkActive="active">Home</a>
+<router-outlet></router-outlet>

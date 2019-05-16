@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+  font-size: 25px;
+}
+
+p {
+  margin: 5px 15px;
+}
