@@ -14,14 +14,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { UserComponent } from './components/user/user/user.component';
 
 //route config
 const appRoutes: Routes = [
-  {
-    path: 'user',
-    component: UserComponent
-  },
   {
     path: 'login',
     component: LoginComponent
@@ -43,8 +38,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
-    UserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
