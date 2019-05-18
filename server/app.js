@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.use('/api/login',(req,res, next)=>{
+app.use('/api/users',(req,res, next)=>{
     const user = [
         {id: 'qwer', password: 'qwer123'},
         {id: 'qwer0', password: 'qwer123'},
