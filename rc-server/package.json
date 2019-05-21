@@ -1,0 +1,51 @@
+{
+  "name": "think_and_read",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
+    "test:all": "npm test **/*.spec.ts",
+    "mocha": "mocha",
+    "start": "nodemon --exec ts-node bootstrap.ts"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "cors": "^2.8.5",
+    "express": "4.16.2",
+    "helmet": "3.12.1",
+    "inversify": "4.13.0",
+    "inversify-binding-decorators": "3.2.0",
+    "inversify-express-utils": "6.1.0",
+    "inversify-logger-middleware": "3.1.0",
+    "jsonwebtoken": "^8.5.0",
+    "method-override": "^3.0.0",
+    "mysql2": "^1.6.5",
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^5.8.6",
+    "swagger-ui-express": "^3.0.10",
+    "typemoq": "^2.1.0",
+    "typeorm": "0.2.7",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/bluebird": "3.5.21",
+    "@types/body-parser": "1.17.0",
+    "@types/chai": "4.1.4",
+    "@types/express": "4.16.0",
+    "@types/helmet": "0.0.38",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/mocha": "5.2.3",
+    "@types/mongodb": "3.1.1",
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "nyc": "12.0.1",
+    "ts-node": "^6.2.0",
+    "typescript": "^3.3.3333"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.ts"
+    ]
+  }
+}
