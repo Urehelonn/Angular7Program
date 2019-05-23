@@ -12,4 +12,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  loginAttempt(loginF){
+    console.log(loginF);
+  }
 }

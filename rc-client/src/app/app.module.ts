@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, NgForm }   from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import {UserService} from './service/user.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    HttpClient,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -57,7 +56,6 @@ const appRoutes: Routes = [
     MatIconModule,
     MatListModule
   ],
-  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
