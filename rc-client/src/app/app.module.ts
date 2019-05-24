@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { UserService } from './service/user/user.service';
 
 //route config
 const appRoutes: Routes = [
@@ -55,6 +56,9 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatListModule
+  ],
+  providers: [
+    UserService
   ],
   bootstrap: [AppComponent]
 })
