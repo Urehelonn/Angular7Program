@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 const http = require('http');
-const Sequelize = require('sequelize');
-const bodyParser = require('body-parser');
+const sequelize = require('sequelize');
+const bodyparser = require('body-parser');
 const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 
 //bodyparser set up to get data from req
 app.use(bodyparser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: false }));
 app.set('port', port);
 
 // Option 1: Passing parameters separately
@@ -38,11 +38,11 @@ app.set('port', port);
 // });
 
 
-app.route('/api/login').get((req, res) => {
+app.route('/api/users').get((req, res) => {
     var users=[
-        {id: 'qwe0', password='qwe123'},
-        {id: 'qwe1', password='qwe123'},
-        {id: 'qwe2', password='qwe123'}
+        // {id: 'qwe0', password='qwe123'},
+        // {id: 'qwe1', password='qwe123'},
+        // {id: 'qwe2', password='qwe123'}
     ];
     res.send({
         message: "This is a msg.",
@@ -52,6 +52,6 @@ app.route('/api/login').get((req, res) => {
 
 
 //======================== Server Listener ============================
-app.listen(8000, () => {
-    console.log('Server started!');
-})``
+app.listen(port, () => {
+    console.log('Server started! '+port);
+})

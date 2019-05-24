@@ -10,7 +10,11 @@ export class UserService {
   
   constructor(private http: HttpClient) {}
 
-  getAllCats(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:8000/api/cats')
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:3000/api/users')
+  }
+
+  signUp(){
+    
   }
 }
