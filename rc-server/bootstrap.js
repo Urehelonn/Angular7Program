@@ -1,52 +1,42 @@
+//======================= CONFIG =============================
 const express = require('express');
 const app = express();
 const http = require('http');
-const sequelize = require('sequelize');
 const bodyparser = require('body-parser');
-const server = http.createServer(app);
+const db = require('./config/database');
+//will be used when refactor the routes.
+//const server = http.createServer(app);
 const port = process.env.PORT || 3000;
-
 //bodyparser set up to get data from req
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.set('port', port);
 
-// Option 1: Passing parameters separately
-// const sequelize = new Sequelize('think_and_read', 'root', 'example', {
-//   host: '127.0.0.1',
-//   dialect: 'mysql'
-// });
+//user routes
+app.use('/user',require('./routes/user'));
 
-// const Users = sequelize.define('users', {
-//   id: {
-//     type: Sequelize.STRING,
-//     allowNull: false,
-//     primaryKey: true
-//   },
-//   password: {
-//     type: Sequelize.STRING,
-//     allowNull: false
-//   }
-// });
 
-// Users.sync({ force: true }).then(() => {
-//   // Now the `users` table in the database corresponds to the model definition
-//   return Users.create({
-//     id: 'qwe',
-//     password: '12345'
-//   });
-// });
+//test if db connected
+db.authenticate()
+.then(()=>console.log('db connected'))
+.catch(err=>console.log('db err! '+err));
 
+
+app.route('/').get((req, res) => {    
+    res.send({
+        message:'hi'
+    });
+})
 
 app.route('/api/users').get((req, res) => {
     var users=[
-        // {id: 'qwe0', password='qwe123'},
-        // {id: 'qwe1', password='qwe123'},
-        // {id: 'qwe2', password='qwe123'}
+        {id: 'qwe0', password:'qwe123'},
+        {id: 'qwe1', password:'qwe123'},
+        {id: 'qwe2', password:'qwe123'}
     ];
     res.send({
-        message: "This is a msg.",
-        users: users
+        message: "first as fake, second from db.",
+        users: users,
     });
 })
 
