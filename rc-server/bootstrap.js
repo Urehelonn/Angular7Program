@@ -12,8 +12,9 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.set('port', port);
 
+//========================== ROUTES ==========================
 //user routes
-app.use('/user',require('./routes/user'));
+app.use('/api/user',require('./routes/user'));
 
 
 //test if db connected
@@ -22,9 +23,9 @@ db.authenticate()
 .catch(err=>console.log('db err! '+err));
 
 
-app.route('/').get((req, res) => {    
+app.route('/api').get((req, res) => {    
     res.send({
-        message:'hi'
+        message:'hi, this iis the main page'
     });
 })
 
