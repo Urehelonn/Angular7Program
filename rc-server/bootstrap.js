@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 //bodyparser set up to get data from req
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+//port setup
 app.set('port', port);
 
 //========================== ROUTES ==========================

@@ -3,7 +3,7 @@ const db = require('../config/database');
 
 const User = db.define('user',{
   id:{type: sequelize.STRING, primaryKey:true},
-  password:{type: sequelize.STRING},
+  password:{type: sequelize.STRING, allowNull:false},
 });
 
 module.exports=User;
