@@ -12,9 +12,8 @@ route.use(bodyparser.urlencoded({ extended: false }));
 route.get('/',(req,res)=>{
     User.findAll()
      .then(users => {
-         console.log(users);
-         res.send(users);
-         res.sendStatus(200);
+         //console.log(users);
+         res.status(200).send(users);
      })
      .catch(err=>console.log(err));
 });
@@ -48,6 +47,7 @@ route.post('/',(req,res)=>{
     }).then(nUser=>{
         console.log(nUser);
         //res.redirect('/');
+        res.send(nUser);
     }).catch(err=>console.log(err));
 });
 
