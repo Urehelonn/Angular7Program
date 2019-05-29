@@ -1,6 +1,7 @@
 const express = require('express');
+//const sequelize = require('sequelize');
 const route = express.Router();
-const db = require('../config/database');
+//const db = require('../config/database');   //this takes the thinkandread database via sequelize connection
 const User = require('../models/user');
 const bodyparser = require('body-parser');
 
@@ -17,22 +18,6 @@ route.get('/',(req,res)=>{
      })
      .catch(err=>console.log(err));
 });
-
-// GET: /api/user/:id   return user with the id
-// route.post('/:id',(req,res)=>{
-//     let userid = req.params.id;
-//     User.findOne({
-//         where: {id: userid}
-//     }).then(user=>{
-//         if(user==null) {
-//             res.sendStatus(404);
-//             res.send('user not found');
-//         }
-//         else{
-//             res.send({user});
-//         }
-//     }).catch(err=>console.log(err));
-// });
 
 //POST: /api/user/  create new user
 route.post('/',(req,res)=>{
@@ -51,17 +36,67 @@ route.post('/',(req,res)=>{
     }).catch(err=>console.log(err));
 });
 
-//DELETE: /api/user/:id  delete user with id
-// route.post('/:id',(req,res)=>{
-//     let id = req.params.id
-//     User.findOne({
-//         where: {id=id}
-//     }).then(dUser=>{
-//         console.log(dUser.id+' deleted');
-//         //res.redirect('');
-//     }).catch(err=>console.log(err));
-// });
+// GET: /api/user/:id   return user with the id
+route.get('/:id',(req,res)=>{
+    let userid = req.params.id;
+    User.findAll({
+        limit: 1,
+        where: {id: userid},
+    }).then(user=>{
+        if(user==null) {
+            res.status(404).send('user not found');
+        }
+        else{
+            console.log(user);
+            res.send({user});
+        }
+    }).catch(err=>console.log(err));
+});
 
-//
+//DELETE: /api/user/:id  delete user with id
+route.delete('/:id',(req,res)=>{
+    let userid = req.params.id;
+    User.destroy({
+        limit: 1,
+        where: {id: userid},
+    }).then(userCount=>{
+        if(userCount!=1) {
+            res.status(400).send('something wrong with the number of deleted user: '+userCount);
+        }
+        else{
+            console.log(userCount);
+            //deleted user info confirm
+            res.send({userCount});
+        }
+    }).catch(err=>console.log(err));
+});
+
+//UPDATE: /api/user/:id     update user with id, using a provided user;
+route.put('/:id',(req,res)=>{
+    let userid = req.params.id;
+    let newUserContent = {
+        id: 'balabalaba',
+        password: 'foo'
+    };
+    Book.update(
+        {id:newUserContent.id,
+        password:newUserContent.password},
+        {where: {id:userid}}
+      )
+      .then(userUpdated=> {
+        if(userUpdated==null) {
+            res.status(401).send('user with id not found: '+userUpdated);
+        }
+        else{
+            console.log(userUpdated);
+            //deleted user info confirm
+            res.send({userUpdated});
+        }
+      })
+      .catch(err=>{
+          res.send(err);
+      });
+});
+
 
 module.exports = route;

@@ -65,3 +65,11 @@ Authorization added, provide different user role with different accessibilities.
 
 b). Front-end
 After website designer provides the full design blueprint, new functions maybe needed, css will be implemented as well.
+
+
+//5.28 data mapping attenmpt
+
+1). //sequelize model mapping
+//https://www.codementor.io/mirko0/how-to-use-sequelize-with-node-and-express-i24l67cuz
+const User = UserModel(sequelize, db);
+- Not working
