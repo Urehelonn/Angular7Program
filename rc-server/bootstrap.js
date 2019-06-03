@@ -26,22 +26,9 @@ db.authenticate()
 
 app.route('/api').get((req, res) => {    
     res.send({
-        message:'hi, this iis the main page'
+        message:'hi, this is the main api'
     });
 })
-
-app.route('/api/users').get((req, res) => {
-    var users=[
-        {id: 'qwe0', password:'qwe123'},
-        {id: 'qwe1', password:'qwe123'},
-        {id: 'qwe2', password:'qwe123'}
-    ];
-    res.send({
-        message: "first as fake, second from db.",
-        users: users,
-    });
-})
-
 
 //======================== Server Listener ============================
 app.listen(port, () => {
