@@ -8,19 +8,19 @@ id="loginFailed"
     (ngSubmit)="loginAttempt(loginF)">
 
     <div class="form-group">
-      <label for="username">User Name:</label>
+      <label for="id">User Name:</label>
       <input
         required
         ngModel
-        #username="ngModel"
-        name="username"
-        id="username"
+        #id="ngModel"
+        name="id"
+        id="id"
         class="form-control"
         type="text"
-        (class.warn)="username.touched && username.invalid">
+        (class.warn)="id.touched && id.invalid">
       <div class="alert alert-danger"
-        *ngIf="username.touched && username.invalid">
-        <span *ngIf="username.errors.required">User Name Required.</span>
+        *ngIf="id.touched && id.invalid">
+        <span *ngIf="id.errors.required">User Id Required.</span>
       </div>
     </div>
 
@@ -48,4 +48,9 @@ id="loginFailed"
   </form>
   <br>
   <a href="./signup">Register</a>
+</div>
+
+<button (click)="getUsers()">getUsers</button>
+<div class="container">
+  <li *ngFor="let user of users">{{user}}</li>
 </div>

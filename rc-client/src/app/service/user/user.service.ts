@@ -10,8 +10,23 @@ export class UserService {
   
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/api/users')
+  printMsg(){
+    console.log('connect to service');
+  }
+
+  getUsers(): User[] {
+    let users: User[] = [];
+    this.http.get<User[]>('http://localhost:3000/api/user').subscribe(
+      (res)=>{
+        console.log(res);
+        users = res;
+    });
+    return users;
+  }
+
+
+  loginAttempt(user: User): boolean{
+    return true;
   }
 
   signUp(){

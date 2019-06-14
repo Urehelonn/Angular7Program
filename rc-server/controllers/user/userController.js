@@ -13,7 +13,7 @@ exports.getAllUsers = (req,res)=>{
 // GET: /api/user/:id   return user with the id
 exports.getUserWithId = (req,res)=>{
     let userid = req.params.id;
-    User.findOne({
+    User.findOne({  
         limit: 1,
         where: {id: userid},
     }).then(user=>{

@@ -10,6 +10,14 @@ const port = process.env.PORT || 3000;
 //bodyparser set up to get data from req
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+
+//allow client-side access
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //port setup
 app.set('port', port);
 
