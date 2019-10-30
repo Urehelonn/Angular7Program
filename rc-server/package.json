@@ -22,7 +22,7 @@
     "method-override": "^3.0.0",
     "mysql2": "^1.6.5",
     "reflect-metadata": "^0.1.12",
-    "sequelize": "^5.8.6",
+    "sequelize": "^5.15.1",
     "swagger-ui-express": "^3.0.10",
     "typemoq": "^2.1.0",
     "typeorm": "0.2.7",
